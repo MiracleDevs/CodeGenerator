@@ -24,6 +24,7 @@ language out there. Inside the tool's configuration folder, you'll find folders 
 This file contains native raw translations from c# to the targeting language. For example, Int16, Int32, Float, Double, etc will be natively translated to numbers in typescript. In here you should provide native translations:
  
 **Structure**
+
 | Field           | Type    | Meaning                                                  |
 |-----------------| --------|----------------------------------------------------------|
 | Name            | string  | C# native type name (I.E: System.Byte, System.Int32, etc)|
@@ -44,6 +45,7 @@ This file contains native raw translations from c# to the targeting language. Fo
 This file contains the codegeneartion items. The only purpose of this file is to give an alias and description to any existing generation item, and referring the path of the razor templates for each case:
 
 **Structure**
+
 | Field           | Type    | Meaning                                                             |
 |-----------------| --------|---------------------------------------------------------------------|
 | Name            | string  | Custom name for the generation item. Should be something meaningful.|
@@ -71,9 +73,9 @@ Once you created your templates for a given targeting language, you must feed so
 
 Tool Line Arguments
 -----
-**-f, --filename** Indicates the path of a output configuration json file.
-
-**-d, --directory** Indicates a directory path in which all the output configuration files will be used to generate code.
-
-**-h, --help** Prompts the help.
+| Short Argument | Large Argument | Description |
+| --- | --- | --- |
+| `**-f` | `--filename` | Indicates the path of a output configuration json file. |
+| `**-d` | `--directory` | Indicates a directory path in which all the output configuration files will be used to generate code. |
+| `**-h` | `--help` | Prompts the help. |
 
