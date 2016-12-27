@@ -19,8 +19,11 @@ namespace MiracleDevs.CodeGen.Logic.CodeGen.CodeGeneration
 
         private ITemplateEngine TemplateEngine { get; }
 
+        public string Language { get; }
+
         public CodeGenerator(string language)
         {
+            this.Language = language;
             var location = Assembly.GetExecutingAssembly().Location;
 
             if (location == null)

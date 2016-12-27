@@ -23,7 +23,7 @@ module @Model.Configuration["Namespace"]
 	{
 	@foreach(var property in Model.Definition.Properties)
 	{	
-		<text>@property.Name: @Raw(GetModelName(property.Type, isInterface: true));</text>
+		<text>@ToCamelCase(property.Name): @Raw(GetModelName(property.Type, isInterface: true));</text>
 	}
 	}
 }

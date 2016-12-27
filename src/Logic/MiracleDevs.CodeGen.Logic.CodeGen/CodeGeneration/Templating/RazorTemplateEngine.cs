@@ -11,7 +11,7 @@ namespace MiracleDevs.CodeGen.Logic.CodeGen.CodeGeneration.Templating
 
         public RazorTemplateEngine()
         {
-            var config = new TemplateServiceConfiguration { CachingProvider = new DefaultCachingProvider(t => { }) };
+            var config = new TemplateServiceConfiguration { /*CachingProvider = new DefaultCachingProvider(t => { })*/ };
             this.EngineService = RazorEngineService.Create(config);
         }
 

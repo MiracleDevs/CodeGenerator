@@ -14,6 +14,8 @@ namespace MiracleDevs.CodeGen.UI.Console
 {
     internal class Program
     {
+        private static CodeGenerator CodeGenerator { get; set; }
+
         public class CodeGenOptions
         {
             [Option('f', "filename", HelpText = "Indicates the path of a output configuration json file.")]
@@ -135,7 +137,10 @@ namespace MiracleDevs.CodeGen.UI.Console
             LoggingService.Instance.Notice("------------------------------------------------------------------------------------------------------");
 
             // runs the code generation code to produce the output.
-            new CodeGenerator(outputConfigurations.Language).Generate(outputConfigurations);
+            if (CodeGenerator == null || CodeGenerator.Language != outputConfigurations.Language)
+                CodeGenerator = new CodeGenerator(outputConfigurations.Language);
+
+            CodeGenerator.Generate(outputConfigurations);
         }
 
         private static Assembly ResolveAssembly(OutputConfiguration configuration, string name)

@@ -18,6 +18,17 @@
 	{
 		return string.Format("{0}{1}", isInterface ?  "I" : "", objectDefinition.Name.Replace("Controller", "Service"));
 	}
+
+	public static string ToCamelCase(string value)
+	{
+		if (value == null)
+			return null;
+
+		if (value.Length == 0)
+			return value;
+
+		return char.ToLower(value[0]) + value.Substring(1, value.Length - 1);
+	}
 	
 	public static string GetAbsoluteModelDirectory(dynamic configuration, dynamic objectDefinition, bool isInterface)
     {
@@ -123,7 +134,7 @@
 			parameters = parameters.Substring(0, parameters.Length - 2);
 		}
 	
-		return string.Format("{0}({1}): IHttpPromise<{2}>{3}", method.Name, parameters, GetModelName(method.ReturnType, isInterface: true), includeSemicolon ? ";" : "");
+		return string.Format("{0}({1}): IHttpPromise<{2}>{3}", ToCamelCase(method.Name), parameters, GetModelName(method.ReturnType, isInterface: true), includeSemicolon ? ";" : "");
 	}
 
 	public static string GetMethodVerb(MiracleDevs.CodeGen.Logic.Translations.MethodDefinition method)
