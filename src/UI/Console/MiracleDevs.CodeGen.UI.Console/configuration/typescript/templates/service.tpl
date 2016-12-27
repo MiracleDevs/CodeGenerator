@@ -15,20 +15,23 @@
 ///<reference path="@Raw(Model.Configuration["AngularTypingPath"])" />
 ///<reference path="@Raw(Model.Configuration["MiracleTypingPath"])" />
 ///<reference path="@Raw(Model.Configuration["HttpServicesPath"])" />
-@foreach(var contract in contracts)
-{
-<text>///<reference path="@Raw(GetRelativeModelDirectoryForServices(Model.Configuration, contract, isInterface: true))" /></text>
-}
+///<reference path="@Raw(Model.Configuration["ApplicationPath"])" />
+///<reference path="@(InterfaceName + ".ts")" />
 
 module @Model.Configuration["Namespace"]
 {
-	import HttpPromise = angular.IHttpPromise;
-	import HttpServiceBase = MiracleDevs.Angular.UI.Web.Services.HttpServiceBase;
-	import AngularServices = MiracleDevs.Angular.UI.Web.Services.AngularServices;
-	import IServiceRegister = MiracleDevs.Angular.UI.Web.Interfaces.IServiceRegister;
+	import IHttpPromise = angular.IHttpPromise;
+	import IHttpService = angular.IHttpService;
+	import HttpServiceBase = Angular.UI.Web.Services.HttpServiceBase;
+	import AngularServices = Angular.UI.Web.Services.AngularServices;
+	import IServiceRegister = Angular.UI.Web.Interfaces.IServiceRegister;
+	import BuildInfo = Angular.UI.Web.BuildInfo;
+	import Application = Web.Client.Application;
+
 	@foreach(var contract in contracts)
 	{
-	<text>import @Raw(Model.Configuration["ModelNamespace"] + "." +  GetModelName(contract, isInterface: true));</text>	
+		var modelName = GetModelName(contract, isInterface: true);
+	<text>import @Raw(modelName) = @Raw(Model.Configuration["ModelNamespace"] + "." +  modelName);</text>	
 	}
 
 	export class @Name extends HttpServiceBase implements @InterfaceName
@@ -47,6 +50,11 @@ module @Model.Configuration["Namespace"]
 			@Raw(MethodBody(method, GetServiceName(Model.Definition, isInterface: false)))
 		}</text>
 	}
+
+		static factory($http: IHttpService): @Name
+        {
+            return new @Name ($http, BuildInfo.instance.getData<string>("host"));
+        }
 	}
 
 	////////////////////////////////////////////////////////////

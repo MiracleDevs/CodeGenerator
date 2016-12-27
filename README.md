@@ -174,4 +174,5 @@ Tool Line Arguments
 | `-f` | `--filename` | Indicates the path of a output configuration json file. |
 | `-d` | `--directory` | Indicates a directory path in which all the output configuration files will be used to generate code. |
 | `-h` | `--help` | Prompts the help. |
-
+| `-t` | `--print-trans` | Prints all the translations. |
+| `-o` | `--print-objdef` | Prints all the object definitions. |

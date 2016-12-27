@@ -45,7 +45,7 @@ namespace MiracleDevs.CodeGen.Logic.CodeGen.CodeGeneration.Templating
 
                 var builder = new StringBuilder(this.Body);
 
-                builder.Remove(indexOfInclude, lastQuote - indexOfInclude);
+                builder.Remove(indexOfInclude, lastQuote - indexOfInclude + 1);
                 builder.Insert(indexOfInclude, File.ReadAllText(path));
 
                 this.Body = builder.ToString();

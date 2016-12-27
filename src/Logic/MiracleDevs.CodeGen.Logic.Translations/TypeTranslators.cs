@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace MiracleDevs.CodeGen.Logic.Translations
@@ -30,10 +31,15 @@ namespace MiracleDevs.CodeGen.Logic.Translations
         {
             this.Translators.Clear();
 
-            var file = $"{Configuration.ConfigurationFolder}/{language}/{Configuration.TypeTranslationsFile}";
+            var location = Assembly.GetExecutingAssembly().Location;
+
+            if (location == null)
+                throw new Exception("Assembly Location couldn't be retrieved.");
+
+            var file = Path.Combine(Path.GetDirectoryName(location), $"{Configuration.ConfigurationFolder}/{language}/{Configuration.TypeTranslationsFile}");
 
             if (!File.Exists(file))
-                return;
+                throw new Exception($"The translation file for language '{language}' is missing.");
 
             this.AddRange(JsonConvert.DeserializeObject<TypeTranslator[]>(File.ReadAllText(file)));
         }

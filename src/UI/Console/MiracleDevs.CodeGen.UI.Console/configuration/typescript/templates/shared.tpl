@@ -2,6 +2,9 @@
 {
 	public static string GetModelName(dynamic objectDefinition, bool isInterface)
 	{
+		if (objectDefinition.NativeType.IsEnum)
+		    isInterface = false;
+
         if (objectDefinition.IsArray && objectDefinition.InnerObject != null)
             return string.Format("{0}[]", GetModelName(objectDefinition.InnerObject, isInterface: isInterface));
 
@@ -120,7 +123,7 @@
 			parameters = parameters.Substring(0, parameters.Length - 2);
 		}
 	
-		return string.Format("{0}({1}): HttpPromise<{2}>{3}", method.Name, parameters, GetModelName(method.ReturnType, isInterface: true), includeSemicolon ? ";" : "");
+		return string.Format("{0}({1}): IHttpPromise<{2}>{3}", method.Name, parameters, GetModelName(method.ReturnType, isInterface: true), includeSemicolon ? ";" : "");
 	}
 
 	public static string GetMethodVerb(MiracleDevs.CodeGen.Logic.Translations.MethodDefinition method)

@@ -28,8 +28,7 @@ namespace MiracleDevs.CodeGen.Logic.CodeGen.Output
             var cfg =  JsonConvert.DeserializeObject<OutputConfiguration>(File.ReadAllText(fileName));
 
             LoggingService.Instance.WriteLine($"Opening configuration for language: [{cfg.Language}]");
-            LoggingService.Instance.WriteLine($"Assembly to load: [{cfg.Assembly}]");
-
+           
             foreach (var outputConfiguration in cfg.FileConfigurations)
             {
                 if (outputConfiguration.NamingRules == null)

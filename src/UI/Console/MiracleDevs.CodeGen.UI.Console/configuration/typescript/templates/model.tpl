@@ -13,14 +13,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 ///<reference path="@Raw(Model.Configuration["MiracleTypingPath"])" />
-@foreach(var contract in contracts)
-{
-<text>///<reference path="@Raw(GetModelName(contract, isInterface: true) + ".ts")" /></text>
-}
+///<reference path="@(InterfaceName + ".ts")" />
 
 module @Model.Configuration["Namespace"]
 {
-	import ModelBase = MiracleDevs.Angular.UI.Web.Models.ModelBase;
+	import ModelBase = MiracleDevs.Angular.UI.Web.Models.ModelBase;	
 
 	export class @Name extends ModelBase implements @InterfaceName
 	{

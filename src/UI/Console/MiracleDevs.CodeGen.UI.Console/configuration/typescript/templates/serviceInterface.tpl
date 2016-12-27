@@ -19,10 +19,11 @@
 
 module @Model.Configuration["Namespace"]
 {
-	import HttpPromise = angular.IHttpPromise;
+	import IHttpPromise = angular.IHttpPromise;
 	@foreach(var contract in contracts)
 	{
-	<text>import @Raw(Model.Configuration["ModelNamespace"] + "." +  GetModelName(contract, isInterface: true));</text>	
+		var modelName = GetModelName(contract, isInterface: true);
+	<text>import @Raw(modelName) = @Raw(Model.Configuration["ModelNamespace"] + "." +  modelName);</text>	
 	}
 
 	export interface @Name
