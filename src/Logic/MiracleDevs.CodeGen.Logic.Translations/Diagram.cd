@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.AttributeDefinition" Collapsed="true">
+    <Position X="0.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAIAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AttributeDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.ClassDefinition" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.Configuration" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAFAAAAAAAAAAAAAAAAAAAAAAAAgAABAAAAAAAAA=</HashCode>
+      <FileName>Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.EnumDefinition" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>EnumDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.EnumValueDefinition" Collapsed="true">
+    <Position X="2.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>EnumValueDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.MemberDefinition" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>MemberDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.MethodDefinition" Collapsed="true">
+    <Position X="0.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQQAAAAgAAAAIAAAAAEAAA=</HashCode>
+      <FileName>MethodDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.ObjectDefinition" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAEAQQAAAAIAAAAAAAAAAEEAA=</HashCode>
+      <FileName>ObjectDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.ObjectDefinitionFactory">
+    <Position X="5.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ObjectDefinitionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.ObjectDefinitions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ObjectDefinitions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.ParameterDefinition" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ParameterDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.PropertyDefinition" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PropertyDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.StructDefinition" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAACAEA=</HashCode>
+      <FileName>StructDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.Translator">
+    <Position X="8" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAIAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Translator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.TypeTranslator" Collapsed="true">
+    <Position X="8" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAgAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeTranslator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MiracleDevs.CodeGen.Logic.Translations.TypeTranslators" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAAAAIABACAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TypeTranslators.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MiracleDevs.CodeGen.Logic.Translations.IObjectDefinitions" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>IObjectDefinitions.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MiracleDevs.CodeGen.Logic.Translations.ITypeTranslators" Collapsed="true">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>ITypeTranslators.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

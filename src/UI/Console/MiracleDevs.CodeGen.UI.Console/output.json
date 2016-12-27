@@ -1,0 +1,123 @@
+﻿{
+  "Language": "typescript",
+  "Assembly": "c:\\Repositories\\timetracker\\src\\Host\\MiracleDevs.TimeTracker.Host.WebApi\\bin\\MiracleDevs.TimeTracker.Host.WebApi.dll",
+  "EntryPointType": "TimesheetController",  
+
+  "FileConfigurations": 
+  [
+    /***************************/
+    /* Service Interface       */
+    /***************************/
+    {
+      "CodeGenerationName": "ServiceInterface",
+      "OutputPath":  "services", 
+
+      "TypeMatchers":  [
+        { "Name":  "InheritsFrom", "Parameters": [ "System.Web.Http.ApiController, System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ] }
+      ],
+
+      "NamingRules": [
+        { "Name": "Replace", "Parameters": [ "Controller", "Service" ] },
+        { "Name": "Format",  "Parameters": [ "I{0}.ts" ] }     
+      ],
+
+      "Parameters": [
+        { "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Services" },
+        { "Name": "ModelOutputPath", "Value": "models" },
+        { "Name": "ModelNamespace", "Value": "MiracleDevs.UI.Web.Models" },
+        { "Name": "AngularTypingPath", "Value": "../../../../../typings/angularjs/angular.d.ts" }
+      ]
+    },
+
+    /***************************/
+    /* Service Implementation  */
+    /***************************/
+    {
+      "CodeGenerationName": "Service",
+      "OutputPath":  "services", 
+
+      "TypeMatchers":  [
+        { "Name":  "InheritsFrom", "Parameters": [ "System.Web.Http.ApiController, System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ] }
+      ],
+
+      "NamingRules": [
+        { "Name": "Replace", "Parameters": [ "Controller", "Service" ] },
+        { "Name": "Format",  "Parameters": [ "{0}.ts" ] }     
+      ],
+
+      "Parameters": [
+        { "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Services" },
+        { "Name": "ModelOutputPath", "Value": "models" },
+        { "Name": "ModelNamespace", "Value": "MiracleDevs.UI.Web.Models" },
+        { "Name": "AngularTypingPath", "Value": "../../../../../typings/angularjs/angular.d.ts" },
+        { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" },
+        { "Name": "HttpServicesPath",  "Value": "../HttpServices.ts" }
+      ]
+    },
+
+    /***************************/
+    /* Model Interface         */
+    /***************************/
+    {
+      "CodeGenerationName": "ModelInterface",
+      "OutputPath": "models", 
+
+      "TypeMatchers":  [
+        { "Name":  "ContainsAttribute", "Parameters": [ "DataContractAttribute" ] },
+        { "Name":  "IsEnum", "Parameters": [ ], "Negate":  "true"  }
+      ],
+
+      "NamingRules": [
+        { "Name": "Replace", "Parameters": [ "View", "" ] },
+        { "Name": "Format",  "Parameters": [ "I{0}.ts" ] }
+      ],
+
+      "Parameters": [{ "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Models" }]
+    },
+
+    /***************************/
+    /* Model Implementation    */
+    /***************************/
+    {
+      "CodeGenerationName": "Model",
+      "OutputPath": "models", 
+
+      "TypeMatchers":  [
+        { "Name":  "ContainsAttribute", "Parameters": [ "DataContractAttribute" ] },
+        { "Name":  "IsEnum", "Parameters": [ ], "Negate":  "true"  }
+      ],
+
+      "NamingRules": [
+        { "Name": "Replace", "Parameters": [ "View", "" ] },
+        { "Name": "Format",  "Parameters": [ "{0}.ts" ] }
+      ],
+
+      "Parameters": [
+        { "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Models" },
+        { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" }
+      ]
+    },
+
+    /***************************/
+    /* Enum                    */
+    /***************************/
+    {
+      "CodeGenerationName": "Enum",
+      "OutputPath": "models", 
+
+      "TypeMatchers":  [
+        { "Name":  "IsEnum", "Parameters": [ ] },
+        { "Name":  "ContainsAttribute", "Parameters": [ "DataContractAttribute" ] }
+      ],
+
+      "NamingRules": [
+        { "Name": "Format",  "Parameters": [ "{0}.ts" ] }
+      ],
+
+      "Parameters": [
+        { "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Models" },
+        { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" }
+      ]
+    }
+  ]
+}

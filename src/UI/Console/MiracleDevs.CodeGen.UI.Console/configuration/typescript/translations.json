@@ -1,0 +1,60 @@
+﻿[
+{ "Name": "System.SByte",                       "Translation": "number" },
+{ "Name": "System.Int16",                       "Translation": "number" },
+{ "Name": "System.Int32",                       "Translation": "number" },
+{ "Name": "System.Int64",                       "Translation": "number" },
+{ "Name": "System.Single",                      "Translation": "number" },
+{ "Name": "System.Double",                      "Translation": "number" },
+{ "Name": "System.Decimal",                     "Translation": "number" },
+{ "Name": "System.Byte",                        "Translation": "number" },
+{ "Name": "System.UInt16",                      "Translation": "number" },
+{ "Name": "System.UInt32",                      "Translation": "number" },
+{ "Name": "System.UInt64",                      "Translation": "number" },                             
+{ "Name": "System.Char",                        "Translation": "string" },
+{ "Name": "System.String",                      "Translation": "string" },
+{ "Name": "System.Boolean",                     "Translation": "boolean"},
+{ "Name": "System.DateTime",                    "Translation": "Date"   },
+{ "Name": "System.Void",                        "Translation": "void"   },
+{ "Name": "System.Nullable`1[System.SByte]",    "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Int16]",    "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Int32]",    "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Int64]",    "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Single]",   "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Double]",   "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Decimal]",  "Translation": "number" },
+{ "Name": "System.Nullable`1[System.Byte]",     "Translation": "number" },
+{ "Name": "System.Nullable`1[System.UInt16]",   "Translation": "number" },
+{ "Name": "System.Nullable`1[System.UInt32]",   "Translation": "number" },
+{ "Name": "System.Nullable`1[System.UInt64]",   "Translation": "number" },                             
+{ "Name": "System.Nullable`1[System.Char]",     "Translation": "string" },
+{ "Name": "System.Nullable`1[System.String]",   "Translation": "string" },                        
+{ "Name": "System.Nullable`1[System.Boolean]",  "Translation": "boolean"},
+{ "Name": "System.Nullable`1[System.DateTime]", "Translation": "Date"   },
+{ "Name": "System.Type",                        "Translation": "Function" },
+{ "Name": "System.Object",                      "Translation": "object" },
+{ "Name": "System.Guid",                        "Translation": "string" }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
