@@ -4,14 +4,14 @@ Miracle Devs
 Code Generation Tool
 --------------------
 This tool allows to automatically translate any c# object that is publicly exposed  into any
-other pre-configure language.  
+other pre-configured language.  
 The main idea behind the development was to convert .NET WebApi controllers and models into client proxies using the power of reflection, and an expressiveness of razor.
 
 With this tool you can virtually port and standardize any c# code to other languages.
-It can be use to create better proxies for WCF, port your domain classes,  DTOs or any
+It can be used to create better proxies for WCF, port your domain classes,  DTOs or any
 other object to a different language like java, javascript, typescript, objective-c, etc.
 
-It's specially powerful when it comes to distributed systems with many different 
+It's specially powerful when it comes to distributed systems, having many different 
 client applications written in different languages.
 
 Configuring a New Targeting Language
