@@ -30,7 +30,8 @@ Name            | string  | C# native type name (I.E: System.Byte, System.Int32,
 Translation     | string  | Targeting language type
 
 **Example**
- [
+```javascript
+[
 	{ "Name": "System.UInt64",                      "Translation": "number" },                             
 	{ "Name": "System.Char",                        "Translation": "string" },
 	{ "Name": "System.String",                      "Translation": "string" },
@@ -38,24 +39,25 @@ Translation     | string  | Targeting language type
 	{ "Name": "System.DateTime",                    "Translation": "Date"   },
 	{ "Name": "System.Void",                        "Translation": "void"   }
 ]
-
+```
 ###codegeneration.json 
 This file contains the codegeneartion items. The only purpose of this file is to give an alias and description to any existing generation item, and referring the path of the razor templates for each case:
 
 **Structure**
-Field          | Type    | Meaning
+Field           | Type    | Meaning
 ----------------| --------|-----------
 Name            | string  | Custom name for the generation item. Should be something meaningful.
-Description   | string  | Short description about the purpose of the item.
-TemplateFile | string  | Path to the razor template file.
+Description     | string  | Short description about the purpose of the item.
+TemplateFile    | string  | Path to the razor template file.
 
 **Example**
-  [{
+```javascript
+[{
     "Name": "ServiceInterface",
     "Description": "Generates a proxy service interface",
     "TemplateFile": "configuration/typescript/templates/serviceInterface.tpl"
-  }]
-
+}]
+```
 
 ### templates folder
 Inside this folder you'll find the razor templates. You can separate shared code between template in a different files, and include it later on the code using the custom sentence **@include**
