@@ -185,6 +185,6 @@
 			callParameters = string.Format("{{ {0} }}", callParameters.Substring(0, callParameters.Length - 2)); 
 
 
-		return string.Format("return this.{0}<{1}>('{2}/{3}', {4}, {5});", verb, GetModelName(method.ReturnType, isInterface: true), serviceName, method.Name, callParameters.Any() ? callParameters : "null", data.Any() ? data : "null");
+		return string.Format("return this.{0}<{1}>('{2}/{3}', {4}, {5});", verb, GetModelName(method.ReturnType, isInterface: true), serviceName.Replace("Service", ""), method.Name, callParameters.Any() ? callParameters : "null", data.Any() ? data : "null");
 	}
 }
