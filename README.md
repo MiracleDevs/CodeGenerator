@@ -24,10 +24,10 @@ language out there. Inside the tool's configuration folder, you'll find folders 
 This file contains native raw translations from c# to the targeting language. For example, Int16, Int32, Float, Double, etc will be natively translated to numbers in typescript. In here you should provide native translations:
  
 **Structure**
- Field          | Type    | Meaning
-----------------| --------|-----------
-Name            | string  | C# native type name (I.E: System.Byte, System.Int32, etc)
-Translation     | string  | Targeting language type
+| Field           | Type    | Meaning                                                  |
+|-----------------| --------|----------------------------------------------------------|
+| Name            | string  | C# native type name (I.E: System.Byte, System.Int32, etc)|
+| Translation     | string  | Targeting language type                                  |
 
 **Example**
 ```javascript
@@ -44,11 +44,11 @@ Translation     | string  | Targeting language type
 This file contains the codegeneartion items. The only purpose of this file is to give an alias and description to any existing generation item, and referring the path of the razor templates for each case:
 
 **Structure**
-Field           | Type    | Meaning
-----------------| --------|-----------
-Name            | string  | Custom name for the generation item. Should be something meaningful.
-Description     | string  | Short description about the purpose of the item.
-TemplateFile    | string  | Path to the razor template file.
+| Field           | Type    | Meaning                                                             |
+|-----------------| --------|---------------------------------------------------------------------|
+| Name            | string  | Custom name for the generation item. Should be something meaningful.|
+| Description     | string  | Short description about the purpose of the item.                    |
+| TemplateFile    | string  | Path to the razor template file.                                    |
 
 **Example**
 ```javascript
