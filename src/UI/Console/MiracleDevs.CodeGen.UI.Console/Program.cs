@@ -99,7 +99,7 @@ namespace MiracleDevs.CodeGen.UI.Console
 
             // register a custom assembly resolver.
             var currentDomain = AppDomain.CurrentDomain;
-            currentDomain.AssemblyResolve += (s, e) => ResolveAssembly(outputConfigurations, e.Name);
+            currentDomain.AssemblyResolve += (s, e) => ResolveAssembly(outputConfigurations, e.Name, e.RequestingAssembly.FullName);
 
             // loads the requested assembly, and extract the type.
             var assembly = Assembly.LoadFile(ResolvePath(outputConfigurations.Assembly));
@@ -143,7 +143,7 @@ namespace MiracleDevs.CodeGen.UI.Console
             CodeGenerator.Generate(outputConfigurations);
         }
 
-        private static Assembly ResolveAssembly(OutputConfiguration configuration, string name)
+        private static Assembly ResolveAssembly(OutputConfiguration configuration, string name, string requestedBy)
         {
             string assemblyName = null;
 
@@ -158,13 +158,15 @@ namespace MiracleDevs.CodeGen.UI.Console
 
                 LoggingService.Instance.WriteLine("");
                 LoggingService.Instance.Notice("Loading Assembly:");
-                LoggingService.Instance.WriteLine($"{assemblyName}");
-                
+                LoggingService.Instance.WriteLine(assemblyName);
+                LoggingService.Instance.Notice("Requested By:");
+                LoggingService.Instance.WriteLine(requestedBy);
+
                 return Assembly.LoadFile(assemblyName);
             }
-            catch
+            catch (Exception ex)
             {
-                LoggingService.Instance.Error($"Problems loading assembly [{assemblyName ?? name}]");
+                LoggingService.Instance.Error($"Problems loading assembly [{assemblyName ?? name}]: {ex.Message}");
                 return null;
             }
         }
