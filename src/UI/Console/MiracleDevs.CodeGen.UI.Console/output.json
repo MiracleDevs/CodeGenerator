@@ -52,6 +52,7 @@
         { "Name": "AngularTypingPath", "Value": "../../../../../typings/angularjs/angular.d.ts" },
         { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" },
         { "Name": "HttpServicesPath",  "Value": "../HttpServices.ts" },
+        { "Name": "HttpServiceBasePath",  "Value": "../HttpServiceBase.ts" },
         { "Name": "ApplicationPath",  "Value": "../Application.ts" }
       ]
     },

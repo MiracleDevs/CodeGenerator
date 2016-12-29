@@ -15,18 +15,16 @@
 ///<reference path="@Raw(Model.Configuration["AngularTypingPath"])" />
 ///<reference path="@Raw(Model.Configuration["MiracleTypingPath"])" />
 ///<reference path="@Raw(Model.Configuration["HttpServicesPath"])" />
-///<reference path="@Raw(Model.Configuration["ApplicationPath"])" />
+///<reference path="@Raw(Model.Configuration["HttpServiceBasePath"])" />
 ///<reference path="@(InterfaceName + ".ts")" />
 
 module @Model.Configuration["Namespace"]
 {
 	import IHttpPromise = angular.IHttpPromise;
 	import IHttpService = angular.IHttpService;
-	import HttpServiceBase = Angular.UI.Web.Services.HttpServiceBase;
 	import AngularServices = Angular.UI.Web.Services.AngularServices;
 	import IServiceRegister = Angular.UI.Web.Interfaces.IServiceRegister;
 	import BuildInfo = Angular.UI.Web.BuildInfo;
-	import Application = Web.Client.Application;
 
 	@foreach(var contract in contracts)
 	{
@@ -38,7 +36,7 @@ module @Model.Configuration["Namespace"]
 	{
 		public static register: IServiceRegister = 
 		{
-			name: HttpServices.@Name,
+			name: HttpServices.@Raw(ToCamelCase(GetServiceName(Model.Definition, isInterface: false))),
             factory: @(Name).factory,
             dependencies: [AngularServices.http]
 		};
