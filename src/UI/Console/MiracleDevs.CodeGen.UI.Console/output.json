@@ -1,7 +1,7 @@
 ﻿{
   "Language": "typescript",
   "Assembly": "c:\\Repositories\\timetracker\\src\\Host\\MiracleDevs.TimeTracker.Host.WebApi\\bin\\MiracleDevs.TimeTracker.Host.WebApi.dll",
-  "EntryPointType": "TimesheetController",  
+  "EntryPointType": "ProjectController",  
 
   "FileConfigurations": 
   [

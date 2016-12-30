@@ -30,7 +30,7 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
             base.Process();
             this.Properties =  this.NativeType.GetTypeInfo().DeclaredProperties.Select(x => new PropertyDefinition(x)).ToList();
-            this.Methods = this.NativeType.GetTypeInfo().DeclaredMethods.Select(x => new MethodDefinition(x)).ToList();
+            this.Methods = this.NativeType.GetTypeInfo().DeclaredMethods.Where(x => x.IsPublic).Select(x => new MethodDefinition(x)).ToList();
         }
 
         public override string ToString()
