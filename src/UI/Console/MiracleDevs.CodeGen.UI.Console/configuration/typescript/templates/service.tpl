@@ -22,9 +22,9 @@ module @Model.Configuration["Namespace"]
 {
 	import IHttpPromise = angular.IHttpPromise;
 	import IHttpService = angular.IHttpService;
-	import AngularServices = Angular.UI.Web.Services.AngularServices;
-	import IServiceRegister = Angular.UI.Web.Interfaces.IServiceRegister;
-	import BuildInfo = Angular.UI.Web.BuildInfo;
+	import AngularServices = @(Raw(Model.Configuration["MiracleAngularNamespace"])).Services.AngularServices;
+	import IServiceRegister = @(Raw(Model.Configuration["MiracleAngularNamespace"])).Interfaces.IServiceRegister;
+	import BuildInfo = @(Raw(Model.Configuration["MiracleAngularNamespace"])).BuildInfo;
 
 	@foreach(var contract in contracts)
 	{

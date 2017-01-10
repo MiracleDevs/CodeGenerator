@@ -17,7 +17,7 @@
 
 module @Model.Configuration["Namespace"]
 {
-	import ModelBase = MiracleDevs.Angular.UI.Web.Models.ModelBase;	
+	import ModelBase = @(Raw(Model.Configuration["MiracleAngularNamespace"])).Models.ModelBase;	
 
 	export class @Name extends ModelBase implements @InterfaceName
 	{

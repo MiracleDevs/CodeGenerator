@@ -53,7 +53,8 @@
         { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" },
         { "Name": "HttpServicesPath",  "Value": "../HttpServices.ts" },
         { "Name": "HttpServiceBasePath",  "Value": "../HttpServiceBase.ts" },
-        { "Name": "ApplicationPath",  "Value": "../Application.ts" }
+        { "Name": "ApplicationPath",  "Value": "../Application.ts" },
+        { "Name": "MiracleAngularNamespace", "Value": "MiracleDevs.Angular" }
       ]
     },
 
@@ -96,7 +97,8 @@
 
       "Parameters": [
         { "Name": "Namespace", "Value": "MiracleDevs.UI.Web.Models" },
-        { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" }
+        { "Name": "MiracleTypingPath", "Value": "../../../../../typings/md-angular/miracledevs.angular.d.ts" },
+        { "Name": "MiracleAngularNamespace", "Value": "MiracleDevs.Angular" }
       ]
     },
 
