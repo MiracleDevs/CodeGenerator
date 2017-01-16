@@ -111,16 +111,68 @@ Once you created your templates for a given language, you must feed some data to
 
 ----------
 
-**Naming Rule Configuration Object**
+**Type Matcher Configuration Object**
 
 | Field | Type | Description |
 | ---- | --- | --- |
-| Name | string | Name of the naming rule. There are a set of pre-programmed rules like format or replace |
+| Name | string | Name of the type matcher. There are a set of pre-programmed matchers like ContainsAttribute, IncludesInName, etc  |
 | Parameters | array of string | Naming rules parameters. |
 
+
+**List of available Type Matchers**
+
+**Name**: ContainsAttribute
+**Parameters**: AttributeName
+**Description**:  Checks if a type is decorated with the given attribute. 
+**Example**:  
+```javascript
+ { "Name":  "ContainsAttribute", "Parameters": [ "DataContract" ] } 
+```
 
 ----------
 
+**Name**: IncludesInName 
+**Parameters**: Keywords
+**Description**: Checks if a given string is included in the type name. 
+**Example**:   
+```javascript
+{ "Name":  "IncludesInName", "Parameters": [ "Controller" ] } 
+```
+
+----------
+
+**Name**: InheritFrom 
+**Parameters**: TypeFullName
+**Description**: Checks if the type inherits from a given type. 
+**Important:** Make sure to use the full name, including assembly, version, etc.
+**Example:** 
+```javascript
+{ "Name":  "InheritsFrom", "Parameters": [ "System.Web.Http.ApiController, System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ] } 
+```
+
+----------
+
+**Name**: IsArray
+**Parameters**:  None
+**Description**: Checks if the type is an array. 
+**Example**:  
+```javascript
+{ "Name":  "IsArray", "Parameters": [] } 
+```
+
+----------
+
+**Name**: IsEnum
+**Parameters**:  None
+**Description**: Checks if the type is an enumeration. 
+**Example**:   
+```javascript
+{ "Name":  "IsEnum", "Parameters": [] } 
+```
+
+----------
+
+
 **Naming Rule Configuration Object**
 
 | Field | Type | Description |
@@ -128,6 +180,26 @@ Once you created your templates for a given language, you must feed some data to
 | Name | string | Name of the naming rule. There are a set of pre-programmed rules like format or replace |
 | Parameters | array of string | Naming rules parameters. |
 
+
+**List of available Naming Rules**
+
+**Name**: Format
+**Parameters**: FormatString
+**Description**:  Inserts the current element name inside a format string, to produce a new name.
+**Example**:  
+```javascript
+ { "Name": "Format",  "Parameters": [ "I{0}.ts" ] } 
+```
+
+----------
+
+**Name**: Replace
+**Parameters**:  OldValue, NewValue
+**Description**:  Returns a new string in which all occurrences of a specified string in the current instance are replaced with another specified string.
+**Example**:  
+```javascript
+ { "Name": "Replace", "Parameters": [ "Controller", "Service" ] }
+```
 
 ----------
 
