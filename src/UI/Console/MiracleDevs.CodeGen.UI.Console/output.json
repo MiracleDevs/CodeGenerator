@@ -1,6 +1,6 @@
 ﻿{
   "Language": "typescript",
-  "Assembly": "c:\\Repositories\\timetracker\\src\\Host\\MiracleDevs.TimeTracker.Host.WebApi\\bin\\MiracleDevs.TimeTracker.Host.WebApi.dll",
+  "Assembly": "Set a webapi assembly route here",
   "EntryPointType": "ProjectController",  
 
   "FileConfigurations": 
