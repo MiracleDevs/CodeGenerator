@@ -16,7 +16,7 @@ other object to a different language like java, javascript, typescript, objectiv
 It's specially powerful when it comes to distributed systems, having many different 
 client applications written in different languages.
 
-![Diagram](images/CodeGeneration.svg)
+![Diagram](images/StructureDiagram.png)
 
 Configuring a New Targeting Language
 -----
