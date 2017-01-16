@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiracleDevs.CodeGen.Logic.Translations;
+using NUnit.Framework;
 
 namespace MiracleDevs.CodeGen.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ObjectDefinitionFactoryTests
     {
         private class TestClass
@@ -19,40 +19,40 @@ namespace MiracleDevs.CodeGen.Tests
         {           
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromClass()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(TestClass)), typeof(ClassDefinition));
+            Assert.IsInstanceOf<ClassDefinition>(ObjectDefinitionFactory.Create(typeof(TestClass)));
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromEnum()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(TestEnum)), typeof(EnumDefinition));
+            Assert.IsInstanceOf<EnumDefinition>(ObjectDefinitionFactory.Create(typeof(TestEnum)));
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromStruct()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(TestStruct)), typeof(StructDefinition));
+            Assert.IsInstanceOf<StructDefinition>(ObjectDefinitionFactory.Create(typeof(TestStruct)));
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromArray()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(TestClass[])), typeof(ClassDefinition));
+            Assert.IsInstanceOf<ClassDefinition>(ObjectDefinitionFactory.Create(typeof(TestClass[])));
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromList()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(List<TestEnum>)), typeof(ClassDefinition));
+            Assert.IsInstanceOf<ClassDefinition>(ObjectDefinitionFactory.Create(typeof(List<TestEnum>)));
         }
 
-        [TestMethod]
+        [Test]
         public void CreateFromEnumerable()
         {
-            Assert.IsInstanceOfType(ObjectDefinitionFactory.Create(typeof(IEnumerable<TestStruct>)), typeof(ClassDefinition));
+            Assert.IsInstanceOf<ClassDefinition>(ObjectDefinitionFactory.Create(typeof(IEnumerable<TestStruct>)));
         }
     }
 }

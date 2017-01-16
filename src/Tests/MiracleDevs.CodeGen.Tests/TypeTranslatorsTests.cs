@@ -1,27 +1,26 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiracleDevs.CodeGen.Logic.Translations;
+using NUnit.Framework;
 
 namespace MiracleDevs.CodeGen.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TypeTranslatorsTests
     {
-        [TestMethod]
+        [Test]
         public void TypeTranslators()
         {
             var typeTranslator = new TypeTranslators();
             Assert.IsNotNull(typeTranslator.Translators);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception), "The translation file for language 'made-up-language' is missing.")]
+        [Test]
         public void OpenFailWithoutLocation()
         {
-            new TypeTranslators().Open("made-up-language");
+            Assert.Catch<Exception>(() => new TypeTranslators().Open("made-up-language"), "The translation file for language 'made-up-language' is missing.");
         }
 
-        [TestMethod]
+        [Test]
         public void Open()
         {
             var typeTranslator = new TypeTranslators();
@@ -33,7 +32,7 @@ namespace MiracleDevs.CodeGen.Tests
             Assert.AreEqual(typeTranslator.Translators.Count, 34);
         }
 
-        [TestMethod]
+        [Test]
         public void Add()
         {
             var translator = new TypeTranslator { Name = "System.Int32", Translation = "number" };
@@ -46,7 +45,7 @@ namespace MiracleDevs.CodeGen.Tests
             Assert.AreEqual(typeTranslator.Get(typeof(int).ToString()), translator);
         }
 
-        [TestMethod]
+        [Test]
         public void AddRange()
         {
             var translator1 = new TypeTranslator { Name = "System.Int32", Translation = "number" };
@@ -62,34 +61,30 @@ namespace MiracleDevs.CodeGen.Tests
             Assert.AreEqual(typeTranslator.Get(typeof(string).ToString()), translator2);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException), "Value can not be null.")]
+        [Test]
         public void AddNull()
         {
-            new TypeTranslators().Add(null);
+            Assert.Catch<ArgumentNullException>(() => new TypeTranslators().Add(null), "Value can not be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException), "Value can not be null.")]
+        [Test]
         public void AddNullRange()
         {
-            new TypeTranslators().AddRange(null);
+            Assert.Catch<ArgumentNullException>(() => new TypeTranslators().AddRange(null), "Value can not be null.");            
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException), "Value can not be null.")]
+        [Test]
         public void GetWithNullName()
         {
             var translator = new TypeTranslator { Name = "System.Int32", Translation = "number" };
             var typeTranslator = new TypeTranslators();
 
             typeTranslator.Add(translator);
-
-            typeTranslator.Get(null as string);
+            
+            Assert.Catch<ArgumentNullException>(() => typeTranslator.Get(null as string), "Value can not be null.");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException), "Value can not be null.")]
+        [Test]
         public void GetWithNullType()
         {
             var translator = new TypeTranslator { Name = "System.Int32", Translation = "number" };
@@ -97,7 +92,7 @@ namespace MiracleDevs.CodeGen.Tests
 
             typeTranslator.Add(translator);
 
-            typeTranslator.Get(null as Type);
+            Assert.Catch<ArgumentNullException>(() => typeTranslator.Get(null as Type), "Value can not be null.");
         }
     }
 }

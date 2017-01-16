@@ -1,34 +1,34 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiracleDevs.CodeGen.Logic.Extensions;
+using NUnit.Framework;
 
 namespace MiracleDevs.CodeGen.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TypeExtensionsTests
     {
-        [TestMethod]
+        [Test]
         public void GetBasicTypeRealGenericNameTest()
         {
             var type = typeof(int);
             Assert.AreEqual(type.GetRealGenericName(), "Int32");
         }
 
-        [TestMethod]
+        [Test]
         public void GetBasicTypeReadableNameTest()
         {
             var type = typeof(int);
             Assert.AreEqual(type.GetReadableName(), "Int32");
         }
 
-        [TestMethod]
+        [Test]
         public void GetGenericTypeRealGenericNameTest()
         {
             var type = typeof(List<int>);
             Assert.AreEqual(type.GetRealGenericName(), "List");
         }
 
-        [TestMethod]
+        [Test]
         public void GetGenericTypeReadableNameTest()
         {
             var type = typeof(List<int>);
