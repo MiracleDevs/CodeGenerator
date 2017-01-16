@@ -2,7 +2,7 @@
 using MiracleDevs.CodeGen.Logic.Extensions;
 using NUnit.Framework;
 
-namespace MiracleDevs.CodeGen.Tests
+namespace MiracleDevs.CodeGen.Tests.Extensions
 {
     [TestFixture]
     public class TypeExtensionsTests

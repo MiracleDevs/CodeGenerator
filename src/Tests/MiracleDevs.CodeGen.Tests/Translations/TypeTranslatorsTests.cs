@@ -2,7 +2,7 @@
 using MiracleDevs.CodeGen.Logic.Translations;
 using NUnit.Framework;
 
-namespace MiracleDevs.CodeGen.Tests
+namespace MiracleDevs.CodeGen.Tests.Translations
 {
     [TestFixture]
     public class TypeTranslatorsTests

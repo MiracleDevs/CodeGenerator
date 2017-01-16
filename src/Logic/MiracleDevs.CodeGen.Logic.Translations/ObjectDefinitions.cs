@@ -25,6 +25,9 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public void ProcessEntryPointType(Type type)
         {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type));
+
             this.Definitions.Clear();
             this.GetDefinition(type);
         }

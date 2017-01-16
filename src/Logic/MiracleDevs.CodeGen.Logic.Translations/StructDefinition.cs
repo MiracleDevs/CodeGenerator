@@ -29,8 +29,8 @@ namespace MiracleDevs.CodeGen.Logic.Translations
                 return;
 
             base.Process();
-            this.Properties =  this.NativeType.GetTypeInfo().DeclaredProperties.Select(x => new PropertyDefinition(x)).ToList();
-            this.Methods = this.NativeType.GetTypeInfo().DeclaredMethods.Where(x => x.IsPublic).Select(x => new MethodDefinition(x)).ToList();
+            this.Properties =  this.NativeType.GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).Select(x => new PropertyDefinition(x)).ToList();
+            this.Methods = this.NativeType.GetTypeInfo().GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).Where(x => !x.IsSpecialName).Select(x => new MethodDefinition(x)).ToList();
         }
 
         public override string ToString()
