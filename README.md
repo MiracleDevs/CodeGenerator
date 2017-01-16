@@ -16,13 +16,15 @@ other object to a different language like java, javascript, typescript, objectiv
 It's specially powerful when it comes to distributed systems, having many different 
 client applications written in different languages.
 
+![Diagram](images/CodeGeneration.svg?raw=true)
+
 Configuring a New Targeting Language
 -----
 This tool is a command line tool, and it requires configuration files in order to work. All the configuration
 is written in json. Inside the tool's configuration folder, you'll find specific folders for targeting languages like typscript, java, objective-c, etc. Inside these folders you'll find the following configuration files:
 
 ###1. translations.json
-This file contains native raw translations from c# to the targeting language. For example, Int16, Int32, Float, Double, etc will be natively translated to numbers in typescript. In here you should provide native translations:
+This file contains native raw translations from c# to the targeting language. For example, Int16, Int32, Float, Double, etc will be natively translated to numbers in typescript. Here you should provide native translations:
  
  
 **Structure**
@@ -47,7 +49,8 @@ This file contains native raw translations from c# to the targeting language. Fo
 ]
 ```
 ###2. codegeneration.json 
-This file contains the codegeneartion items. The only purpose of this file is to give an alias and description to any existing generation item, and referring the path of the razor templates for each case:
+This file contains codegeneartion items. Basically, each code-generation item configures a razor template, giving a readable alias and description, and referring the path to the aforementioned razor template. 
+Later these configurations will be used by other files to reference what needs to be translated. The basic structure is:
 
 
 **Structure**
@@ -71,12 +74,15 @@ This file contains the codegeneartion items. The only purpose of this file is to
 ```
 
 ###3. templates folder
-Inside this folder you'll find the razor templates. You can separate shared code between template in a different files, and include it later on the code using the custom sentence **@include**
+Inside this folder you'll find all the razor templates. When writing templates for a new language, changes are that you will need to call the same method, or to reuse some of the templating code.  For that purpose we added a custom sentence so you can separate shared code in different files, and then include it on the code using the custom sentence **@include**. Suppose you have a shared file at the same level as your templates, then on your template, you just add the following line of code:
 
+```razor
+@include "shared.tpl"
+```
 
 Adding Output file Configurations
 -----
-Once you created your templates for a given targeting language, you must feed some data to the tool in order to generate the code. Basically, this configuration tells the tool which assembly to process, which type is the entry point, and from there, how and what to generate from the data. 
+Once you created your templates for a given language, you must feed some data to the tool in order to generate the code. Basically, this configuration tells the tool which assembly to process, which type will be used as the starting point for the data extraction, and from there, how and what to generate from the data. 
 
 ### Structure of Output Configuration
 
