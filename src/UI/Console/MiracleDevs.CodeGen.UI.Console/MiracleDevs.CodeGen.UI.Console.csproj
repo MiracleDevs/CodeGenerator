@@ -93,15 +93,15 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\Logic\MiracleDevs.CodeGen.Logic.CodeGen\MiracleDevs.CodeGen.Logic.CodeGen.csproj">
       <Project>{9C69FCB3-C80F-4EC6-B816-5305A4699288}</Project>
-      <Name>MiracleDevs.ProxyGen.Logic.CodeGen</Name>
+      <Name>MiracleDevs.CodeGen.Logic.CodeGen</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Logic\MiracleDevs.CodeGen.Logic.Logging\MiracleDevs.CodeGen.Logic.Logging.csproj">
       <Project>{168D4095-A2D8-40B0-937D-26443F31399D}</Project>
-      <Name>MiracleDevs.ProxyGen.Logic.Logging</Name>
+      <Name>MiracleDevs.CodeGen.Logic.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Logic\MiracleDevs.CodeGen.Logic.Translations\MiracleDevs.CodeGen.Logic.Translations.csproj">
       <Project>{07247EDA-3872-47AF-AEF9-2CE205267EFE}</Project>
-      <Name>MiracleDevs.ProxyGen.Logic.Translations</Name>
+      <Name>MiracleDevs.CodeGen.Logic.Translations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

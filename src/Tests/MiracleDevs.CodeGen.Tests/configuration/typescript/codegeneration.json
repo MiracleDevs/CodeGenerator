@@ -1,0 +1,27 @@
+﻿[
+  {
+    "Name": "ServiceInterface",
+    "Description": "",
+    "TemplateFile": "configuration/typescript/templates/serviceInterface.tpl"
+  },
+  {
+    "Name": "ModelInterface",
+    "Description": "",
+    "TemplateFile": "configuration/typescript/templates/modelInterface.tpl"
+  },
+  {
+    "Name": "Service",
+    "Description": "",
+    "TemplateFile": "configuration/typescript/templates/service.tpl"
+  },
+  {
+    "Name": "Model",
+    "Description": "",
+    "TemplateFile": "configuration/typescript/templates/model.tpl"
+  },
+  {
+    "Name": "Enum",
+    "Description": "",
+    "TemplateFile": "configuration/typescript/templates/enum.tpl"
+  }
+]

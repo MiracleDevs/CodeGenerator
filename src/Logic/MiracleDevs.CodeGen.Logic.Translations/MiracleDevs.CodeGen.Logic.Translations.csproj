@@ -72,7 +72,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MiracleDevs.CodeGen.Logic.Extensions\MiracleDevs.CodeGen.Logic.Extensions.csproj">
       <Project>{ABE8EE05-1469-4637-8E5A-F28A6FD7DF6D}</Project>
-      <Name>MiracleDevs.ProxyGen.Logic.Extensions</Name>
+      <Name>MiracleDevs.CodeGen.Logic.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

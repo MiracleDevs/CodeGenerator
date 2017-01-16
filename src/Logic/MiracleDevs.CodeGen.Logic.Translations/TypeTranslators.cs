@@ -46,11 +46,17 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public void Add(TypeTranslator translator)
         {
+            if (translator == null)
+                throw new ArgumentNullException(nameof(translator));
+
             this.Translators.Add(translator.Name, translator);
         }
 
         public void AddRange(IEnumerable<TypeTranslator> translators)
         {
+            if (translators == null)
+                throw new ArgumentNullException(nameof(translators));
+
             foreach (var translator in translators)
             {
                 this.Add(translator);
@@ -59,11 +65,17 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public TypeTranslator Get(Type type)
         {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type));
+
             return this.Get(type.Name) ?? this.Get(type.ToString());
         }
 
         public TypeTranslator Get(string typeName)
         {
+            if (typeName == null)
+                throw new ArgumentNullException(nameof(typeName));
+
             return !this.Translators.ContainsKey(typeName) ? null : this.Translators[typeName];
         }
 

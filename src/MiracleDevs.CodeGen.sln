@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiracleDevs.CodeGen.Logic.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiracleDevs.CodeGen.Logic.Logging", "Logic\MiracleDevs.CodeGen.Logic.Logging\MiracleDevs.CodeGen.Logic.Logging.csproj", "{168D4095-A2D8-40B0-937D-26443F31399D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{95C231CF-C1CE-4AB2-86CA-EFD20DFD7AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiracleDevs.CodeGen.Tests", "Tests\MiracleDevs.CodeGen.Tests\MiracleDevs.CodeGen.Tests.csproj", "{A6B43081-B790-4D62-8632-42FB2D83688E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{168D4095-A2D8-40B0-937D-26443F31399D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{168D4095-A2D8-40B0-937D-26443F31399D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{168D4095-A2D8-40B0-937D-26443F31399D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6B43081-B790-4D62-8632-42FB2D83688E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B43081-B790-4D62-8632-42FB2D83688E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B43081-B790-4D62-8632-42FB2D83688E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B43081-B790-4D62-8632-42FB2D83688E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +64,6 @@ Global
 		{9C69FCB3-C80F-4EC6-B816-5305A4699288} = {71C3BFA9-ABE3-4112-93E3-751AC220538D}
 		{ABE8EE05-1469-4637-8E5A-F28A6FD7DF6D} = {71C3BFA9-ABE3-4112-93E3-751AC220538D}
 		{168D4095-A2D8-40B0-937D-26443F31399D} = {71C3BFA9-ABE3-4112-93E3-751AC220538D}
+		{A6B43081-B790-4D62-8632-42FB2D83688E} = {95C231CF-C1CE-4AB2-86CA-EFD20DFD7AEA}
 	EndGlobalSection
 EndGlobal
