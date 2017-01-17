@@ -51,6 +51,19 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Translations\MethodDefinitionTests.cs" />
+    <Compile Include="Translations\ClassDefinitionTests.cs" />
+    <Compile Include="Translations\EnumDefinitionTests.cs" />
+    <Compile Include="Translations\Mocks\MethodAttribute.cs" />
+    <Compile Include="Translations\Mocks\ParameterAttribute.cs" />
+    <Compile Include="Translations\Mocks\PropertyAttribute.cs" />
+    <Compile Include="Translations\Mocks\TestItem.cs" />
+    <Compile Include="Translations\Mocks\TestClass.cs" />
+    <Compile Include="Translations\Mocks\TestEnum.cs" />
+    <Compile Include="Translations\Mocks\TestStruct.cs" />
+    <Compile Include="Translations\ParameterDefinitionTests.cs" />
+    <Compile Include="Translations\PropertyDefinitionTests.cs" />
+    <Compile Include="Translations\StructDefinitionTests.cs" />
     <Compile Include="Translations\ObjectDefinitionsTests.cs" />
     <Compile Include="Translations\ObjectDefinitionFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,11 +8,6 @@ namespace MiracleDevs.CodeGen.Logic.Translations
     {      
         public List<EnumValueDefinition> Values { get; set; }
 
-        public EnumDefinition()
-        {
-            this.Values = new List<EnumValueDefinition>();
-        }
-
         public EnumDefinition(Type type) : base(type)
         {
             this.Values = new List<EnumValueDefinition>();

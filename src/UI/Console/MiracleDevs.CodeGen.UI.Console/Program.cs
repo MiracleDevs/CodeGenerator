@@ -16,24 +16,6 @@ namespace MiracleDevs.CodeGen.UI.Console
     {
         private static CodeGenerator CodeGenerator { get; set; }
 
-        public class CodeGenOptions
-        {
-            [Option('f', "filename", HelpText = "Indicates the path of a output configuration json file.")]
-            public string FileName { get; set; }
-
-            [Option('d', "directory", HelpText = "Indicates a directory path in which all the output configuration files will be used to generate code.")]
-            public string Folder { get; set; }
-
-            [Option('t', "print-trans", HelpText = "Prints all the translations.")]
-            public bool PrintTranslations { get; set; }
-
-            [Option('o', "print-objdef", HelpText = "Prints all the object definitions.")]
-            public bool PrintObjectDefinition { get; set; }
-
-            [Option('h', "help", HelpText = "Prompts the help.")]
-            public bool Help { get; set; }
-        }
-
         private static void Main(string[] args)
         {
             var started = DateTime.Now;
@@ -46,28 +28,13 @@ namespace MiracleDevs.CodeGen.UI.Console
             LoggingService.Instance.Notice($"Started at: {started}");
             LoggingService.Instance.Notice("------------------------------------------------------------------------------------------------------");
 
-            var options = new CodeGenOptions();
-            var currentLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var location = GetCurrentLocation();
+            var options = GetOptions(args);
 
-            if (currentLocation == null)
-            {
-                LoggingService.Instance.Error("Couldn't retrieve the current location.");
+            if (PrintHelp(options))
                 return;
-            }
 
-            if (!Parser.Default.ParseArguments(args, options))
-            {
-                LoggingService.Instance.Error("Couldn't parse the command line arguments.");
-                return;
-            }
-
-            if (options.Help)
-            {
-                LoggingService.Instance.Write(HelpText.AutoBuild(options).ToString());
-                return;
-            }
-
-            foreach (var fileName in GetFilesToProcess(options, currentLocation))
+            foreach (var fileName in GetFilesToProcess(options, location))
             {
                 GenerateFile(fileName, options);
             }
@@ -79,17 +46,6 @@ namespace MiracleDevs.CodeGen.UI.Console
             LoggingService.Instance.Notice("------------------------------------------------------------------------------------------------------");
         }
 
-        private static List<string> GetFilesToProcess(CodeGenOptions options, string currentLocation)
-        {
-            var files = new List<string>();
-
-            if (!string.IsNullOrWhiteSpace(options.FileName))
-                files.Add(options.FileName);
-            else if (options.Folder != null)
-                files.AddRange(Directory.EnumerateFiles(Path.Combine(currentLocation, options.Folder), "*.json"));
-            return files;
-        }
-
         private static void GenerateFile(string fileName, CodeGenOptions options)
         {
             LoggingService.Instance.Notice($"Opening file: [{fileName}]");
@@ -97,13 +53,7 @@ namespace MiracleDevs.CodeGen.UI.Console
             // opens the output configuration.
             var outputConfigurations = OutputConfiguration.Open(fileName);
 
-            // register a custom assembly resolver.
-            var currentDomain = AppDomain.CurrentDomain;
-            currentDomain.AssemblyResolve += (s, e) => ResolveAssembly(outputConfigurations, e.Name, e.RequestingAssembly.FullName);
-
-            // loads the requested assembly, and extract the type.
-            var assembly = Assembly.LoadFile(ResolvePath(outputConfigurations.Assembly));
-            var type = assembly.ExportedTypes.FirstOrDefault(x => x.Name == outputConfigurations.EntryPointType);
+            var type = GetTypeFromAssembly(outputConfigurations);
 
             LoggingService.Instance.WriteLine("");
             LoggingService.Instance.WriteLine($"Processing type [{outputConfigurations.EntryPointType}]");
@@ -112,25 +62,8 @@ namespace MiracleDevs.CodeGen.UI.Console
             Translator.Translators.Open(outputConfigurations.Language);
             Translator.Definitions.ProcessEntryPointType(type);
 
-            if (options.PrintTranslations)
-            {
-                LoggingService.Instance.WriteLine("Translators:");
-
-                foreach (var translator in Translator.Translators.Translators.Values)
-                {
-                    LoggingService.Instance.WriteLine($"  - {translator.Name} to {translator.Translation}");
-                }
-            }
-
-            if (options.PrintObjectDefinition)
-            {
-                LoggingService.Instance.WriteLine("Object Definitions:");
-
-                foreach (var definition in Translator.Definitions.Definitions.Values)
-                {
-                    LoggingService.Instance.WriteLine($"  - {definition.Name}");
-                }
-            }
+            PrintTranslations(options);
+            PrintDefinitions(options);
 
             LoggingService.Instance.WriteLine($"Processing finished [{outputConfigurations.EntryPointType}]");
             LoggingService.Instance.WriteLine("");
@@ -141,6 +74,75 @@ namespace MiracleDevs.CodeGen.UI.Console
                 CodeGenerator = new CodeGenerator(outputConfigurations.Language);
 
             CodeGenerator.Generate(outputConfigurations);
+        }
+
+        private static Type GetTypeFromAssembly(OutputConfiguration outputConfigurations)
+        {
+            // register a custom assembly resolver.
+            var currentDomain = AppDomain.CurrentDomain;
+            currentDomain.AssemblyResolve +=(s, e) => ResolveAssembly(outputConfigurations, e.Name, e.RequestingAssembly.FullName);
+
+            // loads the requested assembly, and extract the type.
+            var assembly = Assembly.LoadFile(ResolvePath(outputConfigurations.Assembly));
+            var type = assembly.ExportedTypes.FirstOrDefault(x => x.Name == outputConfigurations.EntryPointType);
+            return type;
+        }
+
+        private static CodeGenOptions GetOptions(string[] args)
+        {
+            var options = new CodeGenOptions();
+
+            if (!Parser.Default.ParseArguments(args, options))
+                throw new Exception("Couldn't parse the command line arguments.");
+
+            return options;
+        }
+
+        private static IEnumerable<string> GetFilesToProcess(CodeGenOptions options, string currentLocation)
+        {
+            var files = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(options.FileName))
+                files.Add(options.FileName);
+            else if (options.Folder != null)
+                files.AddRange(Directory.EnumerateFiles(Path.Combine(currentLocation, options.Folder), "*.json"));
+
+            return files;
+        }
+
+        private static bool PrintHelp(CodeGenOptions options)
+        {
+            if (!options.Help)
+                return false;
+
+            LoggingService.Instance.Write(HelpText.AutoBuild(options).ToString());
+            return true;
+        }
+
+        private static void PrintDefinitions(CodeGenOptions options)
+        {
+            if (!options.PrintObjectDefinition)
+                return;
+
+            LoggingService.Instance.WriteLine("Object Definitions:");
+
+            foreach (var definition in Translator.Definitions.Definitions.Values)
+            {
+                LoggingService.Instance.WriteLine($"  - {definition.Name}");
+            }
+        }
+
+        private static void PrintTranslations(CodeGenOptions options)
+        {
+            if (!options.PrintTranslations)
+                return;
+
+            LoggingService.Instance.WriteLine("Translators:");
+
+            foreach (var translator in Translator.Translators.Translators.Values)
+            {
+                LoggingService.Instance.WriteLine($"  - {translator.Name} to {translator.Translation}");
+            }
         }
 
         private static Assembly ResolveAssembly(OutputConfiguration configuration, string name, string requestedBy)
@@ -176,6 +178,18 @@ namespace MiracleDevs.CodeGen.UI.Console
             var currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
             var fileName = Path.Combine(currentDirectory, path);
             return fileName;
+        }
+
+        private static string GetCurrentLocation()
+        {
+            var currentLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            if (currentLocation == null)
+            {
+                throw new Exception("Couldn't retrieve the current location.");
+            }
+
+            return currentLocation;
         }
     }
 }

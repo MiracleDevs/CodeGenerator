@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MiracleDevs.CodeGen.Logic.Translations;
+using MiracleDevs.CodeGen.Tests.Translations.Mocks;
 using NUnit.Framework;
 
 namespace MiracleDevs.CodeGen.Tests.Translations
@@ -7,22 +8,6 @@ namespace MiracleDevs.CodeGen.Tests.Translations
     [TestFixture]
     public class ObjectDefinitionFactoryTests
     {
-        #region Nested Types
-
-        private class TestClass
-        {
-        }
-
-        private enum TestEnum
-        {
-        }
-
-        private struct TestStruct
-        {
-        }
-
-        #endregion
-
         [Test]
         public void CreateFromClass()
         {

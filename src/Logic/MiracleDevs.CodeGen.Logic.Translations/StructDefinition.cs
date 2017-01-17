@@ -11,12 +11,6 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public List<MethodDefinition> Methods { get; set; }
 
-        public StructDefinition()
-        {
-            this.Properties = new List<PropertyDefinition>();
-            this.Methods = new List<MethodDefinition>();
-        }
-
         public StructDefinition(Type type): base(type)
         {
             this.Properties = new List<PropertyDefinition>();

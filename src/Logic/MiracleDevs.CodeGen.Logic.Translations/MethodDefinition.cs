@@ -16,12 +16,6 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public List<AttributeDefinition> Attributes { get; set; }
 
-        public MethodDefinition()
-        {
-            this.Parameters = new List<ParameterDefinition>();
-            this.Attributes = new List<AttributeDefinition>();
-        }
-
         public MethodDefinition(MethodInfo info)
         {
             this.Name = info.Name;

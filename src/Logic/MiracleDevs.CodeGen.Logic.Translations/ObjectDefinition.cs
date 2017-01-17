@@ -25,11 +25,6 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         public bool IsArray { get; set; }
 
-        protected ObjectDefinition()
-        {
-            this.Attributes = new List<AttributeDefinition>();
-        }
-
         protected ObjectDefinition(Type type)
         {        
             this.NativeType = type;
