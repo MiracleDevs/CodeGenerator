@@ -17,3 +17,5 @@ obj
 packages
 TestResults
 .vs
+deploy/*
+examples/WebApiExample/*

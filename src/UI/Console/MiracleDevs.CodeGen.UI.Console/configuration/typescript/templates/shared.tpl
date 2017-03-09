@@ -5,11 +5,13 @@
 		if (objectDefinition.NativeType.IsEnum)
 		    isInterface = false;
 
-        if (objectDefinition.IsArray && objectDefinition.InnerObject != null)
-            return string.Format("{0}[]", GetModelName(objectDefinition.InnerObject, isInterface: isInterface));
+		if (!objectDefinition.HasTranslation)
+		{
+	        if (objectDefinition.IsArray && objectDefinition.InnerObject != null)
+		        return string.Format("{0}[]", GetModelName(objectDefinition.InnerObject, isInterface: isInterface));
 
-        if (!objectDefinition.HasTranslation)
-            return string.Format("{0}{1}", isInterface ?  "I" : "", objectDefinition.Name.Replace("View", ""));
+			    return string.Format("{0}{1}", isInterface ?  "I" : "", objectDefinition.Name.Replace("View", ""));
+		}
 
         return objectDefinition.Translator.Translation;
 	}

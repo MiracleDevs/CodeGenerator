@@ -12,6 +12,7 @@
 { "Name": "System.UInt64",                      "Translation": "number" },                             
 { "Name": "System.Char",                        "Translation": "string" },
 { "Name": "System.String",                      "Translation": "string" },
+{ "Name": "System.Byte[]",                      "Translation": "string" },
 { "Name": "System.Boolean",                     "Translation": "boolean"},
 { "Name": "System.DateTime",                    "Translation": "Date"   },
 { "Name": "System.Void",                        "Translation": "void"   },
