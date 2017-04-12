@@ -21,7 +21,7 @@ namespace MiracleDevs.CodeGen.Logic.Translations
 
         #endregion
 
-        #region Public Methods
+        #region Public Methods 
 
         public void ProcessEntryPointType(Type type)
         {

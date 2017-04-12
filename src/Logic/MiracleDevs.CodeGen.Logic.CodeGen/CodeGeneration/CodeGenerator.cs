@@ -29,7 +29,12 @@ namespace MiracleDevs.CodeGen.Logic.CodeGen.CodeGeneration
             if (location == null)
                 throw new Exception("Assembly Location couldn't be retrieved.");
 
-            var file = Path.Combine(Path.GetDirectoryName(location), $"{Configuration.ConfigurationFolder}/{language}/{Configuration.CodeGenerationConfiguration}");
+            var path = Path.GetDirectoryName(location);
+
+            if (path == null)
+                throw new Exception("Assembly Location path can not be retrieved");
+
+            var file = Path.Combine(path, $"{Configuration.ConfigurationFolder}/{language}/{Configuration.CodeGenerationConfiguration}");
 
             if (!File.Exists(file))
                 throw new Exception($"The codegeneration configuration file for language '{language}' is missing.");
